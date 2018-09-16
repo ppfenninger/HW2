@@ -1,0 +1,100 @@
+#! /usr/local/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1-107-gab6ae79)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x12ba1c0 .scope module, "behavioralMultiplexer" "behavioralMultiplexer" 2 7;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "out"
+    .port_info 1 /INPUT 1 "address0"
+    .port_info 2 /INPUT 1 "address1"
+    .port_info 3 /INPUT 1 "in0"
+    .port_info 4 /INPUT 1 "in1"
+    .port_info 5 /INPUT 1 "in2"
+    .port_info 6 /INPUT 1 "in3"
+v0x12a9ca0_0 .net "address", 1 0, L_0x12e36a0;  1 drivers
+o0x7f7a87dbf048 .functor BUFZ 1, C4<z>; HiZ drive
+v0x12e1ca0_0 .net "address0", 0 0, o0x7f7a87dbf048;  0 drivers
+o0x7f7a87dbf078 .functor BUFZ 1, C4<z>; HiZ drive
+v0x12e1d60_0 .net "address1", 0 0, o0x7f7a87dbf078;  0 drivers
+o0x7f7a87dbf0a8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x12e1e30_0 .net "in0", 0 0, o0x7f7a87dbf0a8;  0 drivers
+o0x7f7a87dbf0d8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x12e1ef0_0 .net "in1", 0 0, o0x7f7a87dbf0d8;  0 drivers
+o0x7f7a87dbf108 .functor BUFZ 1, C4<z>; HiZ drive
+v0x12e2000_0 .net "in2", 0 0, o0x7f7a87dbf108;  0 drivers
+o0x7f7a87dbf138 .functor BUFZ 1, C4<z>; HiZ drive
+v0x12e20c0_0 .net "in3", 0 0, o0x7f7a87dbf138;  0 drivers
+v0x12e2180_0 .net "inputs", 3 0, L_0x12e3510;  1 drivers
+v0x12e2260_0 .net "out", 0 0, L_0x12e37d0;  1 drivers
+L_0x12e3510 .concat [ 1 1 1 1], o0x7f7a87dbf0a8, o0x7f7a87dbf0d8, o0x7f7a87dbf108, o0x7f7a87dbf138;
+L_0x12e36a0 .concat [ 1 1 0 0], o0x7f7a87dbf048, o0x7f7a87dbf078;
+L_0x12e37d0 .part/v L_0x12e3510, L_0x12e36a0, 1;
+S_0x12bc6d0 .scope module, "structuralMultiplexer" "structuralMultiplexer" 2 20;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "out"
+    .port_info 1 /INPUT 1 "address0"
+    .port_info 2 /INPUT 1 "address1"
+    .port_info 3 /INPUT 1 "in0"
+    .port_info 4 /INPUT 1 "in1"
+    .port_info 5 /INPUT 1 "in2"
+    .port_info 6 /INPUT 1 "in3"
+o0x7f7a87dbf378 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x12e38f0/d .functor NOT 1, o0x7f7a87dbf378, C4<0>, C4<0>, C4<0>;
+L_0x12e38f0 .delay 1 (50,50,50) L_0x12e38f0/d;
+o0x7f7a87dbf3a8 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x12e39b0/d .functor NOT 1, o0x7f7a87dbf3a8, C4<0>, C4<0>, C4<0>;
+L_0x12e39b0 .delay 1 (50,50,50) L_0x12e39b0/d;
+L_0x12e3b60/d .functor AND 1, L_0x12e38f0, L_0x12e39b0, C4<1>, C4<1>;
+L_0x12e3b60 .delay 1 (50,50,50) L_0x12e3b60/d;
+L_0x12e3d60/d .functor AND 1, o0x7f7a87dbf378, L_0x12e39b0, C4<1>, C4<1>;
+L_0x12e3d60 .delay 1 (50,50,50) L_0x12e3d60/d;
+L_0x12e3ec0/d .functor AND 1, L_0x12e38f0, o0x7f7a87dbf3a8, C4<1>, C4<1>;
+L_0x12e3ec0 .delay 1 (50,50,50) L_0x12e3ec0/d;
+L_0x12e4020/d .functor AND 1, o0x7f7a87dbf378, o0x7f7a87dbf3a8, C4<1>, C4<1>;
+L_0x12e4020 .delay 1 (50,50,50) L_0x12e4020/d;
+o0x7f7a87dbf3d8 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x12e4180/d .functor AND 1, L_0x12e3b60, o0x7f7a87dbf3d8, C4<1>, C4<1>;
+L_0x12e4180 .delay 1 (50,50,50) L_0x12e4180/d;
+o0x7f7a87dbf408 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x12e4290/d .functor AND 1, L_0x12e3d60, o0x7f7a87dbf408, C4<1>, C4<1>;
+L_0x12e4290 .delay 1 (50,50,50) L_0x12e4290/d;
+o0x7f7a87dbf438 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x12e4490/d .functor AND 1, L_0x12e3ec0, o0x7f7a87dbf438, C4<1>, C4<1>;
+L_0x12e4490 .delay 1 (50,50,50) L_0x12e4490/d;
+o0x7f7a87dbf468 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x12e45f0/d .functor AND 1, L_0x12e4020, o0x7f7a87dbf468, C4<1>, C4<1>;
+L_0x12e45f0 .delay 1 (50,50,50) L_0x12e45f0/d;
+L_0x12e4800/d .functor OR 1, L_0x12e4180, L_0x12e4290, C4<0>, C4<0>;
+L_0x12e4800 .delay 1 (50,50,50) L_0x12e4800/d;
+L_0x12e49a0/d .functor OR 1, L_0x12e4490, L_0x12e45f0, C4<0>, C4<0>;
+L_0x12e49a0 .delay 1 (50,50,50) L_0x12e49a0/d;
+L_0x12e4bc0/d .functor OR 1, L_0x12e4800, L_0x12e49a0, C4<0>, C4<0>;
+L_0x12e4bc0 .delay 1 (50,50,50) L_0x12e4bc0/d;
+v0x12e24d0_0 .net "add0inv", 0 0, L_0x12e38f0;  1 drivers
+v0x12e25b0_0 .net "add1inv", 0 0, L_0x12e39b0;  1 drivers
+v0x12e2670_0 .net "address0", 0 0, o0x7f7a87dbf378;  0 drivers
+v0x12e2710_0 .net "address1", 0 0, o0x7f7a87dbf3a8;  0 drivers
+v0x12e27d0_0 .net "in0", 0 0, o0x7f7a87dbf3d8;  0 drivers
+v0x12e2890_0 .net "in1", 0 0, o0x7f7a87dbf408;  0 drivers
+v0x12e2950_0 .net "in2", 0 0, o0x7f7a87dbf438;  0 drivers
+v0x12e2a10_0 .net "in3", 0 0, o0x7f7a87dbf468;  0 drivers
+v0x12e2ad0_0 .net "is0", 0 0, L_0x12e3b60;  1 drivers
+v0x12e2c20_0 .net "is1", 0 0, L_0x12e3d60;  1 drivers
+v0x12e2ce0_0 .net "is2", 0 0, L_0x12e3ec0;  1 drivers
+v0x12e2da0_0 .net "is3", 0 0, L_0x12e4020;  1 drivers
+v0x12e2e60_0 .net "out", 0 0, L_0x12e4bc0;  1 drivers
+v0x12e2f20_0 .net "out0", 0 0, L_0x12e4180;  1 drivers
+v0x12e2fe0_0 .net "out01", 0 0, L_0x12e4800;  1 drivers
+v0x12e30a0_0 .net "out1", 0 0, L_0x12e4290;  1 drivers
+v0x12e3160_0 .net "out2", 0 0, L_0x12e4490;  1 drivers
+v0x12e3310_0 .net "out23", 0 0, L_0x12e49a0;  1 drivers
+v0x12e33b0_0 .net "out3", 0 0, L_0x12e45f0;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "multiplexer.v";

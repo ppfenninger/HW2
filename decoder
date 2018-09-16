@@ -1,0 +1,89 @@
+#! /usr/local/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1-107-gab6ae79)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x20f9710 .scope module, "behavioralDecoder" "behavioralDecoder" 2 7;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "out0"
+    .port_info 1 /OUTPUT 1 "out1"
+    .port_info 2 /OUTPUT 1 "out2"
+    .port_info 3 /OUTPUT 1 "out3"
+    .port_info 4 /INPUT 1 "address0"
+    .port_info 5 /INPUT 1 "address1"
+    .port_info 6 /INPUT 1 "enable"
+v0x20f8db0_0 .net *"_s11", 3 0, L_0x2132870;  1 drivers
+v0x2130d40_0 .net *"_s5", 3 0, L_0x2132630;  1 drivers
+L_0x7fd17fa41018 .functor BUFT 1, C4<000>, C4<0>, C4<0>, C4<0>;
+v0x2130e20_0 .net *"_s8", 2 0, L_0x7fd17fa41018;  1 drivers
+v0x2130f10_0 .net *"_s9", 1 0, L_0x2132760;  1 drivers
+o0x7fd17fa8a0d8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x2130ff0_0 .net "address0", 0 0, o0x7fd17fa8a0d8;  0 drivers
+o0x7fd17fa8a108 .functor BUFZ 1, C4<z>; HiZ drive
+v0x2131100_0 .net "address1", 0 0, o0x7fd17fa8a108;  0 drivers
+o0x7fd17fa8a138 .functor BUFZ 1, C4<z>; HiZ drive
+v0x21311c0_0 .net "enable", 0 0, o0x7fd17fa8a138;  0 drivers
+v0x2131280_0 .net "out0", 0 0, L_0x21324a0;  1 drivers
+v0x2131340_0 .net "out1", 0 0, L_0x2132400;  1 drivers
+v0x2131490_0 .net "out2", 0 0, L_0x2132330;  1 drivers
+v0x2131550_0 .net "out3", 0 0, L_0x2132260;  1 drivers
+L_0x2132260 .part L_0x2132870, 3, 1;
+L_0x2132330 .part L_0x2132870, 2, 1;
+L_0x2132400 .part L_0x2132870, 1, 1;
+L_0x21324a0 .part L_0x2132870, 0, 1;
+L_0x2132630 .concat [ 1 3 0 0], o0x7fd17fa8a138, L_0x7fd17fa41018;
+L_0x2132760 .concat [ 1 1 0 0], o0x7fd17fa8a0d8, o0x7fd17fa8a108;
+L_0x2132870 .shift/l 4, L_0x2132630, L_0x2132760;
+S_0x210b3e0 .scope module, "structuralDecoder" "structuralDecoder" 2 18;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "out0"
+    .port_info 1 /OUTPUT 1 "out1"
+    .port_info 2 /OUTPUT 1 "out2"
+    .port_info 3 /OUTPUT 1 "out3"
+    .port_info 4 /INPUT 1 "address0"
+    .port_info 5 /INPUT 1 "address1"
+    .port_info 6 /INPUT 1 "enable"
+o0x7fd17fa8a3d8 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x21329b0/d .functor NOT 1, o0x7fd17fa8a3d8, C4<0>, C4<0>, C4<0>;
+L_0x21329b0 .delay 1 (50,50,50) L_0x21329b0/d;
+o0x7fd17fa8a408 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x2132a70/d .functor NOT 1, o0x7fd17fa8a408, C4<0>, C4<0>, C4<0>;
+L_0x2132a70 .delay 1 (50,50,50) L_0x2132a70/d;
+L_0x2132bd0/d .functor AND 1, L_0x21329b0, L_0x2132a70, C4<1>, C4<1>;
+L_0x2132bd0 .delay 1 (50,50,50) L_0x2132bd0/d;
+L_0x2132dd0/d .functor AND 1, o0x7fd17fa8a3d8, L_0x2132a70, C4<1>, C4<1>;
+L_0x2132dd0 .delay 1 (50,50,50) L_0x2132dd0/d;
+L_0x2132f30/d .functor AND 1, L_0x21329b0, o0x7fd17fa8a408, C4<1>, C4<1>;
+L_0x2132f30 .delay 1 (50,50,50) L_0x2132f30/d;
+L_0x2133090/d .functor AND 1, o0x7fd17fa8a3d8, o0x7fd17fa8a408, C4<1>, C4<1>;
+L_0x2133090 .delay 1 (50,50,50) L_0x2133090/d;
+o0x7fd17fa8a438 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x2133230/d .functor AND 1, L_0x2132bd0, o0x7fd17fa8a438, C4<1>, C4<1>;
+L_0x2133230 .delay 1 (50,50,50) L_0x2133230/d;
+L_0x2133340/d .functor AND 1, L_0x2132dd0, o0x7fd17fa8a438, C4<1>, C4<1>;
+L_0x2133340 .delay 1 (50,50,50) L_0x2133340/d;
+L_0x2133590/d .functor AND 1, L_0x2132f30, o0x7fd17fa8a438, C4<1>, C4<1>;
+L_0x2133590 .delay 1 (50,50,50) L_0x2133590/d;
+L_0x21336f0/d .functor AND 1, L_0x2133090, o0x7fd17fa8a438, C4<1>, C4<1>;
+L_0x21336f0 .delay 1 (50,50,50) L_0x21336f0/d;
+v0x2131730_0 .net "add0inv", 0 0, L_0x21329b0;  1 drivers
+v0x2131810_0 .net "add1inv", 0 0, L_0x2132a70;  1 drivers
+v0x21318d0_0 .net "address0", 0 0, o0x7fd17fa8a3d8;  0 drivers
+v0x2131970_0 .net "address1", 0 0, o0x7fd17fa8a408;  0 drivers
+v0x2131a30_0 .net "enable", 0 0, o0x7fd17fa8a438;  0 drivers
+v0x2131af0_0 .net "is0", 0 0, L_0x2132bd0;  1 drivers
+v0x2131bb0_0 .net "is1", 0 0, L_0x2132dd0;  1 drivers
+v0x2131c70_0 .net "is2", 0 0, L_0x2132f30;  1 drivers
+v0x2131d30_0 .net "is3", 0 0, L_0x2133090;  1 drivers
+v0x2131e80_0 .net "out0", 0 0, L_0x2133230;  1 drivers
+v0x2131f40_0 .net "out1", 0 0, L_0x2133340;  1 drivers
+v0x2132000_0 .net "out2", 0 0, L_0x2133590;  1 drivers
+v0x21320c0_0 .net "out3", 0 0, L_0x21336f0;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "decoder.v";

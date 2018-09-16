@@ -7,10 +7,14 @@ module testDecoder ();
     reg enable;
     wire out0,out1,out2,out3;
 
-    behavioralDecoder decoder (out0,out1,out2,out3,addr0,addr1,enable);
-    //structuralDecoder decoder (out0,out1,out2,out3,addr0,addr1,enable); // Swap after testing
+    //behavioralDecoder decoder (out0,out1,out2,out3,addr0,addr1,enable);
+    structuralDecoder decoder (out0,out1,out2,out3,addr0,addr1,enable); // Swap after testing
 
     initial begin
+
+    $dumpfile("decoder.vcd");
+    $dumpvars(0,decoder);
+
     $display("En A0 A1| O0 O1 O2 O3 | Expected Output");
     enable=0;addr0=0;addr1=0; #1000 
     $display("%b  %b  %b |  %b  %b  %b  %b | All false", enable, addr0, addr1, out0, out1, out2, out3);

@@ -1,0 +1,125 @@
+$date
+	Sun Sep 16 14:42:15 2018
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testDecoder $end
+$scope module decoder $end
+$var wire 1 ! add0inv $end
+$var wire 1 " add1inv $end
+$var wire 1 # address0 $end
+$var wire 1 $ address1 $end
+$var wire 1 % enable $end
+$var wire 1 & is0 $end
+$var wire 1 ' is1 $end
+$var wire 1 ( is2 $end
+$var wire 1 ) is3 $end
+$var wire 1 * out0 $end
+$var wire 1 + out1 $end
+$var wire 1 , out2 $end
+$var wire 1 - out3 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x-
+x,
+x+
+x*
+x)
+x(
+x'
+x&
+0%
+0$
+0#
+x"
+x!
+$end
+#50000
+1"
+1!
+0-
+0,
+0+
+0*
+0)
+0(
+0'
+#100000
+1&
+#1000000
+1#
+#1050000
+0!
+1'
+#1100000
+0&
+#2000000
+1$
+0#
+#2050000
+0"
+1!
+0'
+#2100000
+1(
+#3000000
+1#
+#3050000
+0!
+1)
+#3100000
+0(
+#4000000
+0$
+0#
+1%
+#4050000
+1"
+1!
+0)
+1-
+#4100000
+1&
+0-
+#4150000
+1*
+#5000000
+1#
+#5050000
+0!
+1'
+#5100000
+0&
+1+
+#5150000
+0*
+#6000000
+1$
+0#
+#6050000
+0"
+1!
+0'
+#6100000
+1(
+0+
+#6150000
+1,
+#7000000
+1#
+#7050000
+0!
+1)
+#7100000
+0(
+1-
+#7150000
+0,
+#8000000
